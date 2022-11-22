@@ -1,40 +1,47 @@
 package ru.netology.radio;
 
 public class Radio {
-    public int station;
-    public int volume;
+    public int countStation; //количество радиостанций
+    private int station; //номер текущей радиостанции
+    private int volume; //значение громкости
+
+    public Radio() {
+        this.countStation = 10;
+    }
+
+    public Radio(int countStation) {
+        this.countStation = countStation;
+    }
 
     //Номер радиостанции
     public int getStation() {
         return station;
     }
 
-    public void setStation(int newStation) {
-        if (newStation < 0) {
+    public void setStation(int station) {
+        if (station < 0) {
             return;
         }
-        if (newStation > 9) {
+        if (station > countStation - 1) {
             return;
         }
-        station = newStation;
+        this.station = station;
     }
 
-    public void nextStation(int nextStation) {
-        if (nextStation >= 0 && nextStation < 9) {
-            station = nextStation + 1;
-        }
-        if (nextStation == 9) {
+    public void nextStation() {
+        if (station < countStation - 1) {
+            station = station + 1;
+        } else {
             station = 0;
         }
         station = getStation();
     }
 
-    public void prevStation(int prevStation) {
-        if (prevStation > 0 && prevStation <= 9) {
-            station = prevStation - 1;
-        }
-        if (prevStation == 0) {
-            station = 9;
+    public void prevStation() {
+        if (station > 0) {
+            station = station - 1;
+        } else {
+            station = countStation - 1;
         }
         station = getStation();
     }
@@ -44,33 +51,27 @@ public class Radio {
         return volume;
     }
 
-    public void setVolume(int newVolume) {
-        if (newVolume < 0) {
+    public void setVolume(int volume) {
+        if (volume < 0) {
             return;
         }
-        if (newVolume > 10) {
+        if (volume > 100) {
             return;
         }
-        volume = newVolume;
+        this.volume = volume;
     }
 
-    public void nextVolume(int nextVolume) {
-        if (nextVolume >= 0 && nextVolume < 10) {
-            volume = nextVolume + 1;
+    public void nextVolume() {
+        if (volume < 100) {
+            volume = volume + 1;
+        } else {
+            volume = getVolume();
         }
-        if (nextVolume == 10) {
-            volume = 10;
-        }
-        volume = getVolume();
     }
 
-    public void prevVolume(int prevVolume) {
-        if (prevVolume > 0 && prevVolume <= 10) {
-            volume = prevVolume - 1;
+    public void prevVolume() {
+        if (volume > 0) {
+            volume = volume - 1;
         }
-        if (prevVolume == 0) {
-            volume = 0;
-        }
-        volume = getVolume();
     }
 }
