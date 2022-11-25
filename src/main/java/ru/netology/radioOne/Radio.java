@@ -25,7 +25,7 @@ public class Radio {
         } else {
             station = 0;
         }
-                station = getStation();
+        station = getStation();
     }
 
     public void prevStation() {

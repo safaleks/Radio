@@ -1,6 +1,7 @@
 package ru.netology.radioOne;
 
 //import org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,16 +55,6 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
-    /*@Test //Нажатие кнопки "Следующая станция" при текущей станции -2 (Тест для 100% покрытия BRANCH)
-    public void shouldNextNumStationLess0() {
-        Radio num = new Radio();
-        num.setStation(-2);
-        num.nextStation();
-        int expected = 0;
-        int actual = num.getStation();
-        assertEquals(expected, actual);
-    }*/
-
     @Test //Нажатие кнопки "Предыдущая станция" при текущей станции 4
     public void shouldPrevNumStation() {
         Radio num = new Radio();
@@ -83,16 +74,6 @@ public class RadioTest {
         int actual = num.getStation();
         assertEquals(expected, actual);
     }
-
-    /*@Test //Нажатие кнопки "Предыдущая станция" при текущей станции 12 (Тест для 100% покрытия BRANCH)
-    public void shouldPrevNumStationMore9() {
-        Radio num = new Radio();
-        num.setStation(12);
-        num.prevStation();
-        int expected = 0;
-        int actual = num.getStation();
-        assertEquals(expected, actual);
-    }*/
 
     //Тесты на громкость
     @Test //Ввод громкости на 6
@@ -141,16 +122,6 @@ public class RadioTest {
         int actual = num.getVolume();
         assertEquals(expected, actual);
     }
-
-    /*@Test //Увеличение громкости при текущем значении -2 (Тест для 100% покрытия BRANCH)
-    public void shouldSetMoreVolumeLess0() {
-        Radio num = new Radio();
-        num.setVolume(-2);
-        num.nextVolume();
-        int expected = 0;
-        int actual = num.getVolume();
-        assertEquals(expected, actual);
-    }*/
 
     @Test //Уменьшение громкости при текущем значении 7
     public void shouldSetLessVolume() {
